@@ -13,9 +13,9 @@
     name: docker
     state: latest
 
-- name: Ensure docker-py installed
+- name: Ensure docker-python installed
   yum:
-    name: docker-py
+    name: docker-python
     state: latest
 
 - name: Enable docker
