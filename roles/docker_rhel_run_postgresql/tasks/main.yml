@@ -21,8 +21,8 @@
     state: started
     restart: yes
     env:
-      POSTGRESQL_USER=myuser
-      POSTGRESQL_PASSWORD=p4ssw0rd
-      POSTGRESQL_DATABASE=docker
+      POSTGRESQL_USER = "{{ pguser }}"
+      POSTGRESQL_PASSWORD = "{{ pgpass }}"
+      POSTGRESQL_DATABASE = "{{ pgdb }}"
 
 
