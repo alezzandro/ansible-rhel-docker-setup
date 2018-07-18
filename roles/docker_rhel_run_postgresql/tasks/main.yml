@@ -1,9 +1,9 @@
 - name: Pulling images of latest tag (force)
   docker_image:
-    name: "{{item}}"
+    name: "{{ item }}"
     tag: latest
     force: yes
-    with_items:
+  with_items:
         - registry.access.redhat.com/rhscl/postgresql-10-rhel7
 
 - name: Killing any previous container that I'll deploy next
