@@ -13,6 +13,11 @@
     name: docker
     state: latest
 
+- name: Ensure docker-py installed
+  yum:
+    name: docker-py
+    state: latest
+
 - name: Enable docker
   command: systemctl enable docker
 
