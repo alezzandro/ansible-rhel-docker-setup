@@ -1,14 +1,12 @@
 - name: Disable all repos
   shell: |
     subscription-manager repos --disable=*
-  when: subscribe.changed
 
 - name: Enable correct repos
   shell: |
     subscription-manager repos --enable='{{item}}'
   with_items:
   - "{{repos}}"
-  when: subscribe.changed
 
 - name: Ensure docker installed
   yum:
