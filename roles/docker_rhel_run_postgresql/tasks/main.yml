@@ -1,0 +1,28 @@
+- name: Pulling images of latest tag (force)
+  docker_image:
+    name: "{{item}}"
+    tag: latest
+    force: yes
+    with_items:
+        - registry.access.redhat.com/rhscl/postgresql-10-rhel7
+
+- name: Killing any previous container that I'll deploy next
+  docker_container:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+        - postgres
+
+
+- name: Starting Postgres container on the host
+  docker_container:
+    name: postgres
+    image: registry.access.redhat.com/rhscl/postgresql-10-rhel7:latest
+    state: started
+    restart: yes
+    env:
+      POSTGRESQL_USER=myuser
+      POSTGRESQL_PASSWORD=p4ssw0rd
+      POSTGRESQL_DATABASE=docker
+
+

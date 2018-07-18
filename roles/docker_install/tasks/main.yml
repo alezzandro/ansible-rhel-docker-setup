@@ -1,0 +1,24 @@
+- name: Disable all repos
+  shell: |
+    subscription-manager repos --disable=*
+  when: subscribe.changed
+
+- name: Enable correct repos
+  shell: |
+    subscription-manager repos --enable='{{item}}'
+  with_items:
+  - "{{repos}}"
+  when: subscribe.changed
+
+- name: Ensure docker installed
+  yum:
+    name: docker
+    state: latest
+
+- name: Enable docker
+  command: systemctl enable docker
+
+- name: Start docker
+  command: systemctl start docker
+
+

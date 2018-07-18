@@ -1,0 +1,6 @@
+- name: Starting the deployment
+  hosts: dockerhosts
+  roles:
+  - docker_install
+  - docker_rhel_run_postgresql 
+
