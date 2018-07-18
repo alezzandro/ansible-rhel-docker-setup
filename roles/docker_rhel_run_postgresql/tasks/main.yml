@@ -21,8 +21,8 @@
     state: started
     restart: yes
     env:
-      POSTGRESQL_USER = "{{ pguser }}"
-      POSTGRESQL_PASSWORD = "{{ pgpass }}"
-      POSTGRESQL_DATABASE = "{{ pgdb }}"
+      POSTGRESQL_USER: "{{ pguser }}"
+      POSTGRESQL_PASSWORD: "{{ pgpass }}"
+      POSTGRESQL_DATABASE: "{{ pgdb }}"
 
 
